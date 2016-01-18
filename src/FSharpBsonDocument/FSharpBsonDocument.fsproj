@@ -44,7 +44,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="BsonType.fs" />
+    <Compile Include="Hex.fs" />
+    <Compile Include="ObjectId.fs" />
+    <Compile Include="IBsonValue.fs" />
+    <Compile Include="Bson.fs" />
+    <Compile Include="BsonBinary.fs" />
+    <Compile Include="BsonBoolean.fs" />
+    <Compile Include="BsonDateTime.fs" />
+    <Compile Include="BsonDouble.fs" />
+    <Compile Include="BsonInt32.fs" />
+    <Compile Include="BsonInt64.fs" />
+    <Compile Include="BsonJavaScript.fs" />
+    <Compile Include="BsonJavaScriptWithScope.fs" />
+    <Compile Include="BsonMaxKey.fs" />
+    <Compile Include="BsonMinKey.fs" />
+    <Compile Include="BsonNull.fs" />
+    <Compile Include="BsonObjectId.fs" />
+    <Compile Include="BsonRegularExpression.fs" />
+    <Compile Include="BsonString.fs" />
+    <Compile Include="BsonTimestamp.fs" />
+    <Compile Include="BsonUndefined.fs" />
+    <Compile Include="BsonElement.fs" />
+    <Compile Include="BsonDocument.fs" />
+    <Compile Include="BsonArray.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
