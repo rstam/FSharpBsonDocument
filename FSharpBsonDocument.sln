@@ -7,6 +7,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpBsonDocument", "src\F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{89EB0FA8-CB64-42B2-BF64-24984BDE1F11}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BF4F43F2-E017-4BED-BE3E-06A7FCB412B3}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpBsonDocumentTests", "tests\FSharpBsonDocumentTests\FSharpBsonDocumentTests.fsproj", "{13E19EAB-C4E8-4977-AC32-312A22AFEF76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +21,16 @@ Global
 		{83CBF81D-E0CA-4F6F-A46D-EC7AB1346730}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83CBF81D-E0CA-4F6F-A46D-EC7AB1346730}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83CBF81D-E0CA-4F6F-A46D-EC7AB1346730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E19EAB-C4E8-4977-AC32-312A22AFEF76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E19EAB-C4E8-4977-AC32-312A22AFEF76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E19EAB-C4E8-4977-AC32-312A22AFEF76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E19EAB-C4E8-4977-AC32-312A22AFEF76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{83CBF81D-E0CA-4F6F-A46D-EC7AB1346730} = {89EB0FA8-CB64-42B2-BF64-24984BDE1F11}
+		{13E19EAB-C4E8-4977-AC32-312A22AFEF76} = {BF4F43F2-E017-4BED-BE3E-06A7FCB412B3}
 	EndGlobalSection
 EndGlobal

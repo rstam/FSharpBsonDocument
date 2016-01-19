@@ -6,11 +6,11 @@ type BsonString =
         val _value : string
 
         // constructors
-        new (value : string) =
+        new(value : string) =
             { _value = value }
 
         // members
-        override this.ToString () =
+        override this.ToString() =
             "\"" + this._value.Replace("\"", "\"\"") + "\""
 
         // interfaces

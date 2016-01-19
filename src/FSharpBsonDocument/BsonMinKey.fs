@@ -3,7 +3,7 @@
 type BsonMinKey =
     struct
         // members
-        override this.ToString () =
+        override this.ToString() =
             "{ \"$minKey\" : 1 }"
 
         // interfaces

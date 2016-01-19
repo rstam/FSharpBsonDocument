@@ -6,11 +6,11 @@ type BsonInt32 =
         val _value : int
 
         // constructors
-        new (value : int) =
+        new(value : int) =
             { _value = value }
 
         // members
-        override this.ToString () =
+        override this.ToString() =
             this._value.ToString()
 
         // interfaces

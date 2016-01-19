@@ -6,12 +6,12 @@ type BsonObjectId =
         val _value : ObjectId
 
         // constructors
-        new (value : ObjectId) =
+        new(value : ObjectId) =
             { _value = value }
 
         // members
-        override this.ToString () =
-            let hex = Hex.ToHex (this._value.ToByteArray ())
+        override this.ToString() =
+            let hex = Hex.ToHex(this._value.ToByteArray())
             "ObjectId(\"" + hex + "\")"
 
         // interfaces

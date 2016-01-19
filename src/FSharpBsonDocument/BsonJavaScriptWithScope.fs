@@ -7,13 +7,13 @@ type BsonJavaScriptWithScope =
         val _scope : IBsonDocument
 
         // constructors
-        new (code : string, scope : IBsonDocument) =
+        new(code : string, scope : IBsonDocument) =
             { _code = code; _scope = scope }
 
         // members
-        override this.ToString () =
-            let code = this._code.Replace ("\"", "\\\"")
-            let scope = this._scope.ToString ()
+        override this.ToString() =
+            let code = this._code.Replace("\"", "\\\"")
+            let scope = this._scope.ToString()
             "{ \"$code\" : \"" + code + "\", \"$scope\" : " + scope + " }"
 
         // interfaces

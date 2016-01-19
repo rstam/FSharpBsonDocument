@@ -7,12 +7,12 @@ type BsonRegularExpression =
         val _options : string
 
         // constructors
-        new (pattern : string, options : string) =
+        new(pattern : string, options : string) =
             { _pattern = pattern; _options = options }
 
         // members
-        override this.ToString () =
-            let pattern = this._pattern.Replace ("/", "\\/")
+        override this.ToString() =
+            let pattern = this._pattern.Replace("/", "\\/")
             "/" + pattern + "/" + this._options
 
         // interfaces

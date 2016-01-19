@@ -97,20 +97,20 @@ let toBoolean (value : IBsonValue) =
         | _ -> true
 
 let toDateTime (value : IBsonDateTime) : DateTime =
-    raise (new NotImplementedException ())
+    raise (NotImplementedException())
 
 let toInt32 (value : IBsonValue) =
     match value with
         | Double value -> int value
         | Int32 value -> value
         | Int64 value -> int value
-        | String value -> Int32.Parse (value)
-        | _ -> raise (new InvalidCastException ())
+        | String value -> Int32.Parse(value)
+        | _ -> raise (InvalidCastException())
 
 let toInt64 (value : IBsonValue) =
     match value with
         | Double value -> int64 value
         | Int32 value -> int64 value
         | Int64 value -> value
-        | String value -> Int64.Parse (value)
-        | _ -> raise (new InvalidCastException ())
+        | String value -> Int64.Parse(value)
+        | _ -> raise (InvalidCastException())

@@ -10,8 +10,8 @@ type BsonArray =
         val _items : List<IBsonValue>
 
         // constructors
-        new (items : seq<IBsonValue>) =
-            { _items = new List<IBsonValue> (items) }
+        new(items : seq<IBsonValue>) =
+            { _items = List<IBsonValue> items }
 
         // interfaces
         interface IBsonValue with
@@ -61,10 +61,10 @@ type BsonArray =
                 (value :?> IBsonString).Value
 
         interface IEnumerable with
-            member this.GetEnumerator () =
-                this._items.GetEnumerator () :> IEnumerator
+            member this.GetEnumerator() =
+                this._items.GetEnumerator() :> IEnumerator
 
         interface IEnumerable<IBsonValue> with
-            member this.GetEnumerator () =
-                this._items.GetEnumerator () :> IEnumerator<IBsonValue>
+            member this.GetEnumerator() =
+                this._items.GetEnumerator() :> IEnumerator<IBsonValue>
     end

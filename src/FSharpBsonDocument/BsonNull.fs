@@ -3,7 +3,7 @@
 type BsonNull =
     struct
         // members
-        override this.ToString () =
+        override this.ToString() =
             "null"
 
         // interfaces

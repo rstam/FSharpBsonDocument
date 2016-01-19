@@ -7,12 +7,12 @@ type BsonBinary =
         val _value : byte[]
 
         // constructors
-        new (subType : BinarySubType, value : byte[]) =
+        new(subType : BinarySubType, value : byte[]) =
             { _subType = subType; _value = value }
 
         // members
-        override this.ToString () =
-            let subType = this._subType.ToString ()
+        override this.ToString() =
+            let subType = this._subType.ToString()
             let hex = Hex.ToHex this._value
             "{ \"$type\" : " + subType + ", \"$hex\" : \"" + hex + "\" }"
 

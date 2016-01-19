@@ -21,11 +21,11 @@ type ObjectId =
             let machine = ObjectIdHelper.Machine
             let pid = ObjectIdHelper.Pid
             let increment = ObjectIdHelper.ComputeIncrement()
-            new ObjectId(timestamp, machine, pid, increment)
+            ObjectId(timestamp, machine, pid, increment)
 
         static member Parse(value : string) =
             let bytes = Hex.ToByteArray(value)
-            new ObjectId(bytes)
+            ObjectId bytes
 
         // constructors
         new(a : int, b : int, c : int) =
@@ -89,8 +89,8 @@ type ObjectId =
 and private ObjectIdHelper() =
     class
         // static fields
-        static let __empty = new ObjectId(0, 0, 0)
-        static let mutable __increment = (new Random()).Next()
+        static let __empty = ObjectId(0, 0, 0)
+        static let mutable __increment = (Random()).Next()
         static let __machine = ObjectIdHelper.ComputeMachine()
         static let __pid = int16 (Process.GetCurrentProcess().Id)
     

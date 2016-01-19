@@ -6,11 +6,11 @@ type BsonBoolean =
         val _value : bool
 
         // constructors
-        new (value : bool) =
+        new(value : bool) =
             { _value = value }
 
         // members
-        override this.ToString () =
+        override this.ToString() =
             if this._value then "true" else "false"
 
         // interfaces

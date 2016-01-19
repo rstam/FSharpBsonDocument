@@ -3,7 +3,7 @@
 type BsonMaxKey =
     struct
         // members
-        override this.ToString () =
+        override this.ToString() =
             "{ \"$maxKey\" : 1 }"
 
         // interfaces

@@ -10,20 +10,20 @@ type BsonDocument =
         val _elements : List<IBsonElement>
 
         // constructors
-        new (elements : seq<IBsonElement>) =
-            { _elements = new List<IBsonElement> (elements) }
+        new(elements : seq<IBsonElement>) =
+            { _elements = List<IBsonElement> elements }
 
-        new (nameValuePairs : seq<string * IBsonValue>) =
-            let elements = nameValuePairs |> Seq.map (fun (name, value) -> new BsonElement (name, value) :> IBsonElement)
-            { _elements = new List<IBsonElement> (elements) }
+        new(nameValuePairs : seq<string * IBsonValue>) =
+            let elements = nameValuePairs |> Seq.map (fun (name, value) -> BsonElement(name, value) :> IBsonElement)
+            { _elements = List<IBsonElement> elements }
 
-        private new (elements : List<IBsonElement>) =
+        private new(elements : List<IBsonElement>) =
             { _elements = elements }
 
         // members
-        override this.ToString () =
-            let elements = this._elements |> Seq.map (fun e -> e.ToString ()) |> Seq.toArray
-            if elements.Length = 0 then "{}" else "{ " + String.Join (", ", elements) + " }"
+        override this.ToString() =
+            let elements = this._elements |> Seq.map (fun e -> e.ToString()) |> Seq.toArray
+            if elements.Length = 0 then "{}" else "{ " + String.Join(", ", elements) + " }"
 
         // interfaces
         interface IBsonValue with
@@ -73,15 +73,15 @@ type BsonDocument =
                 (value :?> IBsonObjectId).Value
 
             member this.Remove name =
-                let elements = new List<IBsonElement> (this._elements)
-                ignore (elements.RemoveAll (fun e -> e.Name = name))
-                new BsonDocument (elements) :> IBsonDocument
+                let elements = List<IBsonElement> this._elements
+                ignore (elements.RemoveAll(fun e -> e.Name = name))
+                BsonDocument elements :> IBsonDocument
 
             member this.Remove names =
-                let elements = new List<IBsonElement> (this._elements)
+                let elements = List<IBsonElement> this._elements
                 for name in names do
-                    ignore (elements.RemoveAll (fun e -> e.Name = name))
-                new BsonDocument (elements) :> IBsonDocument
+                    ignore (elements.RemoveAll(fun e -> e.Name = name))
+                BsonDocument elements :> IBsonDocument
 
             member this.String name =
                 let value = (this :> IBsonDocument).[name]
@@ -90,30 +90,30 @@ type BsonDocument =
             member this.TryFind name =
                 this._elements |> Seq.tryPick (fun e -> if e.Name = name then Some e.Value else None)
 
-            member this.With (name, value) =
-                let elements = new List<IBsonElement> (this._elements)
-                let element = new BsonElement (name, value) :> IBsonElement
+            member this.With(name, value) =
+                let elements = List<IBsonElement> this._elements
+                let element = BsonElement(name, value) :> IBsonElement
                 let index = elements |> Seq.tryFindIndex (fun e -> e.Name = name)
                 match index with
                     | Some index -> elements.[index] <- element
-                    | None -> elements.Add (element)
-                new BsonDocument (elements) :> IBsonDocument
+                    | None -> elements.Add(element)
+                BsonDocument elements :> IBsonDocument
 
-            member this.With (nameValuePairs : IEnumerable<string * IBsonValue>) =
-                let elements = new List<IBsonElement> (this._elements)
+            member this.With(nameValuePairs : IEnumerable<string * IBsonValue>) =
+                let elements = List<IBsonElement> this._elements
                 for (name, value) in nameValuePairs do
-                    let element = new BsonElement (name, value) :> IBsonElement
+                    let element = BsonElement(name, value) :> IBsonElement
                     let index = elements |> Seq.tryFindIndex (fun e -> e.Name = name)
                     match index with
                         | Some index -> elements.[index] <- element
-                        | None -> elements.Add (element)
-                new BsonDocument (elements) :> IBsonDocument
+                        | None -> elements.Add(element)
+                BsonDocument elements :> IBsonDocument
 
         interface IEnumerable with
-            member this.GetEnumerator () =
-                this._elements.GetEnumerator () :> IEnumerator
+            member this.GetEnumerator() =
+                this._elements.GetEnumerator() :> IEnumerator
 
         interface IEnumerable<IBsonElement> with
-            member this.GetEnumerator () =
-                this._elements.GetEnumerator () :> IEnumerator<IBsonElement>
+            member this.GetEnumerator() =
+                this._elements.GetEnumerator() :> IEnumerator<IBsonElement>
     end

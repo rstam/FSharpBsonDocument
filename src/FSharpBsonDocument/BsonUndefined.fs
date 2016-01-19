@@ -3,7 +3,7 @@
 type BsonUndefined =
     struct
         // members
-        override this.ToString () =
+        override this.ToString() =
             "undefined"
 
         // interfaces

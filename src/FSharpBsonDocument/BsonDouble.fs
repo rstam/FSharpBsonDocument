@@ -6,11 +6,11 @@ type BsonDouble =
         val _value : double
 
         // constructors
-        new (value : double) =
+        new(value : double) =
             { _value = value }
 
         // members
-        override this.ToString () =
+        override this.ToString() =
             let s = this._value.ToString()
             if s.IndexOfAny([| '.'; 'e'; 'E' |]) = -1 then s + ".0" else s
 

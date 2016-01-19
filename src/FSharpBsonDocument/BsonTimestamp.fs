@@ -6,17 +6,17 @@ type BsonTimestamp =
         val _value : int64
 
         // constructors
-        new (value : int64) =
+        new(value : int64) =
             { _value = value }
 
-        new (timestamp : int, increment : int) =
+        new(timestamp : int, increment : int) =
             let value = ((int64 timestamp) <<< 32) ||| ((int64 increment) &&& 0xffffffffL)
             { _value = value }
 
         // members
-        override this.ToString () =
-            let timestamp = (this :> IBsonTimestamp).Timestamp.ToString ()
-            let increment = (this :> IBsonTimestamp).Increment.ToString ()
+        override this.ToString() =
+            let timestamp = (this :> IBsonTimestamp).Timestamp.ToString()
+            let increment = (this :> IBsonTimestamp).Increment.ToString()
             "{ \"$timestamp\" : { \"t\" : " + timestamp + ", \"i\" : " + increment + " } }"
 
         // interfaces

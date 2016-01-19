@@ -6,12 +6,12 @@ type BsonJavaScript =
         val _code : string
 
         // constructors
-        new (code : string) =
+        new(code : string) =
             { _code = code }
 
         // members
-        override this.ToString () =
-            let code = this._code.Replace ("\"", "\\\"")
+        override this.ToString() =
+            let code = this._code.Replace("\"", "\\\"")
             "{ \"$code\" : \"" + code + "\" }"
 
         // interfaces
