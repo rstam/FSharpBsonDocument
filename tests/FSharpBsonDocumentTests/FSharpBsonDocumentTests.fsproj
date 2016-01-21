@@ -64,8 +64,10 @@
     <Compile Include="BsonMaxKeyTests.fs" />
     <Compile Include="BsonMinKeyTests.fs" />
     <Compile Include="BsonNullTests.fs" />
+    <Compile Include="BsonObjectIdTests.fs" />
     <Compile Include="BsonRegularExpressionTests.fs" />
     <Compile Include="BsonStringTests.fs" />
+    <Compile Include="BsonTimestampTests.fs" />
     <Compile Include="BsonUndefinedTests.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
