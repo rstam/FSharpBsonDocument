@@ -1,7 +1,7 @@
 ﻿namespace FSharpBsonDocument
 
 type BsonBinary =
-    struct
+    class
         // fields
         val _subType : BinarySubType
         val _value : byte[]
@@ -12,13 +12,11 @@ type BsonBinary =
 
         // members
         override this.ToString() =
-            let subType = this._subType.ToString()
-            let hex = Hex.ToHex this._value
-            "{ \"$type\" : " + subType + ", \"$hex\" : \"" + hex + "\" }"
+            sprintf "{ \"$type\" : %i, \"$hex\" : \"%s\" }" (int this._subType) (Hex.ToHex(this._value))
 
         // interfaces
         interface IBsonBinary with
-            member this.Type = BsonType.Double
+            member this.Type = BsonType.Binary
             member this.SubType = this._subType
             member this.Value = this._value
     end

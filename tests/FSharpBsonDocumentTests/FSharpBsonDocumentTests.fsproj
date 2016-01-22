@@ -72,6 +72,7 @@
     <Compile Include="BsonTimestampTests.fs" />
     <Compile Include="BsonUndefinedTests.fs" />
     <Content Include="packages.config" />
+    <Compile Include="BsonBinaryTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
