@@ -1,7 +1,7 @@
 ﻿namespace FSharpBsonDocument
 
 type BsonJavaScript =
-    struct
+    class
         // fields
         val _code : string
 

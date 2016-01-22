@@ -1,7 +1,7 @@
 ﻿namespace FSharpBsonDocument
 
 type BsonJavaScriptWithScope =
-    struct
+    class
         // fields
         val _code : string
         val _scope : IBsonDocument
