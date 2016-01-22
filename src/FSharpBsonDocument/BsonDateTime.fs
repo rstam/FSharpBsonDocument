@@ -1,5 +1,7 @@
 ﻿namespace FSharpBsonDocument
 
+open System
+
 type BsonDateTime =
     struct
         // fields
@@ -8,6 +10,10 @@ type BsonDateTime =
         // constructors
         new(value : int64) =
             { _value = value }
+
+        new(value : DateTime) =
+            raise (NotImplementedException())
+            { _value = 0L }
 
         // members
         override this.ToString() =

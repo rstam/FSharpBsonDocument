@@ -2,6 +2,7 @@
 
 open FSharpBsonDocument
 open Xunit
+open BsonExtensions
 
 type BsonJavaScriptWithScopeTests =
     class
@@ -12,7 +13,7 @@ type BsonJavaScriptWithScopeTests =
         [<InlineData("abc")>]
         [<InlineData("def")>]
         member this.``Code should return expected result``(code : string) =
-            let scope = BsonDocument([| ("x", BsonInt32 1 :> IBsonValue) |])
+            let scope = BsonDocument [| "x" @= 1 |]
             let subject = BsonJavaScriptWithScope(code, scope) :> IBsonJavaScriptWithScope
             let result = subject.Code
             Assert.Equal(code, result)
@@ -21,7 +22,7 @@ type BsonJavaScriptWithScopeTests =
         [<InlineData("abc", 1)>]
         [<InlineData("def", 2)>]
         member this.``constructor should initialize instance``(code : string, x : int) =
-            let scope = BsonDocument([| ("x", BsonInt32 1 :> IBsonValue) |])
+            let scope = BsonDocument [| "x" @= 1 |]
             let result = BsonJavaScriptWithScope(code, scope) :> IBsonJavaScriptWithScope
             Assert.Equal(BsonType.JavaScriptWithScope, result.Type)
             Assert.Equal(code, result.Code)
@@ -31,7 +32,7 @@ type BsonJavaScriptWithScopeTests =
         [<InlineData(1)>]
         [<InlineData(2)>]
         member this.``Scope should return expected result``(x : int) =
-            let scope = BsonDocument([| ("x", BsonInt32 1 :> IBsonValue) |])
+            let scope = BsonDocument [| "x" @= 1 |]
             let subject = BsonJavaScriptWithScope("code", scope) :> IBsonJavaScriptWithScope
             let result = subject.Scope
             Assert.Equal(scope, result)
@@ -41,7 +42,7 @@ type BsonJavaScriptWithScopeTests =
         [<InlineData("def", 2)>]
         [<InlineData("\"def\"", 3)>]
         member this.``ToString should return expected result``(code : string, x : int) =
-            let scope = BsonDocument([| ("x", BsonInt32 1 :> IBsonValue) |])
+            let scope = BsonDocument [| "x" @= 1 |]
             let subject = BsonJavaScriptWithScope(code, scope) :> IBsonJavaScriptWithScope
             let expectedResult = sprintf "{ \"$code\" : \"%s\", \"$scope\" : %s }" (code.Replace("\"", "\\\"")) (scope.ToString())
             let result = subject.ToString()
@@ -49,7 +50,7 @@ type BsonJavaScriptWithScopeTests =
 
         [<Fact>]
         member this.``Type should return expected result``() =
-            let scope = BsonDocument([| ("x", BsonInt32 1 :> IBsonValue) |])
+            let scope = BsonDocument [| "x" @= 1 |]
             let subject = BsonJavaScriptWithScope("code", scope) :> IBsonJavaScriptWithScope
             let result = subject.Type
             Assert.Equal(BsonType.JavaScriptWithScope, result)
