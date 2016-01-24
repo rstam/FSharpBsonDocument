@@ -68,6 +68,10 @@ type BsonDocument =
                 with get name =
                     this._elements |> Seq.pick (fun e -> if e.Name = name then Some e.Value else None)
 
+            member this.Item
+                with get index =
+                    this._elements.[index]
+
             member this.ObjectId name =
                 let value = (this :> IBsonDocument).[name]
                 (value :?> IBsonObjectId).Value

@@ -153,6 +153,7 @@ type IBsonDocument =
 
         // properties
         abstract Count : int with get
+        abstract Item : int -> IBsonElement with get
         abstract Item : string -> IBsonValue with get
         abstract IsEmpty : bool with get
 

@@ -1,8 +1,8 @@
 ﻿namespace FSharpBsonDocumentTests
 
+open BsonValueOperators
 open FSharpBsonDocument
 open Xunit
-open BsonExtensions
 
 type BsonJavaScriptWithScopeTests =
     class

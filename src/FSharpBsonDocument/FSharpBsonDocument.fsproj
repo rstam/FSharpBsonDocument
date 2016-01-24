@@ -67,7 +67,7 @@
     <Compile Include="BsonElement.fs" />
     <Compile Include="BsonDocument.fs" />
     <Compile Include="BsonArray.fs" />
-    <Compile Include="BsonElementOperators.fs" />
+    <Compile Include="BsonValueOperators.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
